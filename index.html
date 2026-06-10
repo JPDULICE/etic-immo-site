@@ -338,7 +338,7 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="nav-cta">
-      <span class="nav-phone">📞 01 XX XX XX XX</span>
+      <span class="nav-phone" id="agency-nav-phone">📞 01 XX XX XX XX</span>
       <a href="#contact" class="btn btn-primary">Nous contacter</a>
     </div>
   </div>
@@ -806,14 +806,14 @@
             <div class="contact-icon">📍</div>
             <div>
               <strong>Adresse</strong>
-              123 Rue de l'Immobilier, 75011 Paris
+              <span id="agency-address">123 Rue de l'Immobilier, 75011 Paris</span>
             </div>
           </div>
           <div class="contact-item">
             <div class="contact-icon">📞</div>
             <div>
               <strong>Téléphone</strong>
-              01 XX XX XX XX
+              <span id="agency-phone">01 XX XX XX XX</span>
             </div>
           </div>
           <div class="contact-item">
@@ -827,7 +827,7 @@
             <div class="contact-icon">🕐</div>
             <div>
               <strong>Horaires</strong>
-              Lun–Ven 9h–19h · Sam 10h–17h
+              <span id="agency-horaires">Lun–Ven 9h–19h · Sam 10h–17h</span>
             </div>
           </div>
         </div>
@@ -934,6 +934,34 @@
       if (a.getAttribute('href') === '#' + current) a.classList.add('active');
     });
   });
+</script>
+
+<!-- Chargement paramètres agence depuis le CMS -->
+<script>
+(async function loadAgence() {
+  try {
+    const r = await fetch('https://api.github.com/repos/JPDULICE/etic-immo-site/contents/_data/agence.yml');
+    if (!r.ok) return;
+    const data = await r.json();
+    const raw = decodeURIComponent(escape(atob((data.content||'').replace(/\n/g,''))));
+    const params = {};
+    raw.split(/\r?\n/).forEach(line => {
+      const m = line.match(/^(\w+):\s*(.*)\s*$/);
+      if (m) params[m[1]] = m[2].trim().replace(/^["']|["']$/g,'');
+    });
+    if (params.telephone) {
+      const tel = params.telephone;
+      document.querySelectorAll('#agency-nav-phone').forEach(el => el.textContent = '📞 ' + tel);
+      document.querySelectorAll('#agency-phone').forEach(el => el.textContent = tel);
+    }
+    if (params.adresse) {
+      document.querySelectorAll('#agency-address').forEach(el => el.textContent = params.adresse);
+    }
+    if (params.horaires) {
+      document.querySelectorAll('#agency-horaires').forEach(el => el.textContent = params.horaires);
+    }
+  } catch(e) { console.warn('Paramètres agence non chargés:', e); }
+})();
 </script>
 
 <!-- Chargement dynamique des biens depuis le CMS -->
