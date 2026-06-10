@@ -1011,7 +1011,7 @@
         const r2 = await fetch(f.url);
         if (!r2.ok) return null;
         const data = await r2.json();
-        const raw  = atob((data.content||'').replace(/\n/g,''));
+        const raw  = decodeURIComponent(escape(atob((data.content||'').replace(/\n/g,''))));
         return parseFM(raw);
       }))).filter(b => b && b.statut !== 'Vendu' && b.statut !== 'Loué');
 
@@ -1036,4 +1036,18 @@
 </script>
 
 <!-- Netlify Identity : redirige vers le back-office après connexion -->
-<script src="https://identity.netlify.
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
