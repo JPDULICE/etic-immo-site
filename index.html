@@ -672,59 +672,8 @@
       <h2>Biens à vendre</h2>
       <p>Découvrez notre sélection de biens disponibles à l'achat.</p>
     </div>
-    <div class="biens-grid">
-
-      <div class="bien-card">
-        <div class="bien-img" style="background: linear-gradient(135deg, #e8e0d5, #d4c5b0);">
-          <div class="bien-img-placeholder">🏠</div>
-          <span class="bien-badge">Vente</span>
-        </div>
-        <div class="bien-body">
-          <div class="bien-price">385 000 €</div>
-          <div class="bien-title">Appartement T4 lumineux</div>
-          <div class="bien-loc">📍 Paris 11e – 85 m²</div>
-          <div class="bien-features">
-            <span class="bien-feat">🛏 4 pièces</span>
-            <span class="bien-feat">🚿 2 SDB</span>
-            <span class="bien-feat">🅿 Parking</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="bien-card">
-        <div class="bien-img" style="background: linear-gradient(135deg, #d5e8e0, #b0d4c5);">
-          <div class="bien-img-placeholder">🏡</div>
-          <span class="bien-badge">Vente</span>
-        </div>
-        <div class="bien-body">
-          <div class="bien-price">520 000 €</div>
-          <div class="bien-title">Maison avec jardin</div>
-          <div class="bien-loc">📍 Vincennes – 120 m²</div>
-          <div class="bien-features">
-            <span class="bien-feat">🛏 5 pièces</span>
-            <span class="bien-feat">🌿 Jardin</span>
-            <span class="bien-feat">🅿 Garage</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="bien-card">
-        <div class="bien-img" style="background: linear-gradient(135deg, #e0d5e8, #c5b0d4);">
-          <div class="bien-img-placeholder">🏢</div>
-          <span class="bien-badge">Vente</span>
-        </div>
-        <div class="bien-body">
-          <div class="bien-price">210 000 €</div>
-          <div class="bien-title">Studio rénové</div>
-          <div class="bien-loc">📍 Paris 20e – 32 m²</div>
-          <div class="bien-features">
-            <span class="bien-feat">🛏 1 pièce</span>
-            <span class="bien-feat">🚿 1 SDB</span>
-            <span class="bien-feat">✨ Rénové</span>
-          </div>
-        </div>
-      </div>
-
+    <div class="biens-grid" id="vente-grid">
+      <div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--gray);">Chargement des biens…</div>
     </div>
     <div style="text-align:center; margin-top:40px;">
       <a href="#contact" class="btn btn-dark">Voir tous les biens à vendre</a>
@@ -740,59 +689,8 @@
       <h2>Biens à louer</h2>
       <p>Appartements et maisons disponibles à la location.</p>
     </div>
-    <div class="biens-grid">
-
-      <div class="bien-card" style="background:var(--white);">
-        <div class="bien-img" style="background: linear-gradient(135deg, #e8f0d5, #d4e8b0);">
-          <div class="bien-img-placeholder">🏠</div>
-          <span class="bien-badge location">Location</span>
-        </div>
-        <div class="bien-body">
-          <div class="bien-price">1 200 € / mois</div>
-          <div class="bien-title">Appartement T3 calme</div>
-          <div class="bien-loc">📍 Montreuil – 65 m²</div>
-          <div class="bien-features">
-            <span class="bien-feat">🛏 3 pièces</span>
-            <span class="bien-feat">🚿 1 SDB</span>
-            <span class="bien-feat">🌳 Vue jardin</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="bien-card" style="background:var(--white);">
-        <div class="bien-img" style="background: linear-gradient(135deg, #e8e0d5, #d4c5b0);">
-          <div class="bien-img-placeholder">🏡</div>
-          <span class="bien-badge location">Location</span>
-        </div>
-        <div class="bien-body">
-          <div class="bien-price">1 800 € / mois</div>
-          <div class="bien-title">Maison T4 avec terrasse</div>
-          <div class="bien-loc">📍 Saint-Maur – 95 m²</div>
-          <div class="bien-features">
-            <span class="bien-feat">🛏 4 pièces</span>
-            <span class="bien-feat">☀️ Terrasse</span>
-            <span class="bien-feat">🅿 Parking</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="bien-card" style="background:var(--white);">
-        <div class="bien-img" style="background: linear-gradient(135deg, #d5e0e8, #b0c5d4);">
-          <div class="bien-img-placeholder">🏢</div>
-          <span class="bien-badge location">Location</span>
-        </div>
-        <div class="bien-body">
-          <div class="bien-price">850 € / mois</div>
-          <div class="bien-title">Studio meublé centre-ville</div>
-          <div class="bien-loc">📍 Paris 12e – 28 m²</div>
-          <div class="bien-features">
-            <span class="bien-feat">🛏 1 pièce</span>
-            <span class="bien-feat">🪑 Meublé</span>
-            <span class="bien-feat">🚇 Métro proche</span>
-          </div>
-        </div>
-      </div>
-
+    <div class="biens-grid" id="location-grid">
+      <div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--gray);">Chargement des biens…</div>
     </div>
     <div style="text-align:center; margin-top:40px;">
       <a href="#contact" class="btn btn-dark">Voir toutes les locations</a>
@@ -1038,4 +936,104 @@
   });
 </script>
 
-<!-- Netlify Ide
+<!-- Chargement dynamique des biens depuis le CMS -->
+<script>
+(async function loadBiens() {
+  const REPO = 'JPDULICE/etic-immo-site';
+  const API  = 'https://api.github.com/repos/' + REPO + '/contents';
+
+  const ICONS = {
+    'Parking':'🅿','Garage':'🏠','Jardin':'🌿','Terrasse':'☀️',
+    'Balcon':'🌅','Cave':'📦','Ascenseur':'🛗','Rénové':'✨',
+    'Meublé':'🪑','Vue jardin':'🌳','Métro proche':'🚇'
+  };
+
+  /* --- Parse le frontmatter YAML simple --- */
+  function parseFM(raw) {
+    const m = raw.match(/^---[\r\n]+([\s\S]*?)[\r\n]+---/);
+    if (!m) return null;
+    const obj = {};
+    m[1].split(/\r?\n/).forEach(line => {
+      const kv = line.match(/^(\w+):\s*(.*)\s*$/);
+      if (!kv) return;
+      const k = kv[1], v = kv[2].replace(/^["']|["']$/g,'').trim();
+      if (v.startsWith('[')) {
+        obj[k] = v.slice(1,-1).split(',').map(s=>s.trim().replace(/^["']|["']$/g,'').trim()).filter(Boolean);
+      } else if (!isNaN(v) && v !== '') {
+        obj[k] = Number(v);
+      } else {
+        obj[k] = v;
+      }
+    });
+    return obj;
+  }
+
+  /* --- Génère le HTML d'une carte --- */
+  function makeCard(b, type) {
+    const loc = type === 'location';
+    const prix = loc
+      ? (Number(b.loyer||0)).toLocaleString('fr-FR') + ' € / mois'
+      : (Number(b.prix ||0)).toLocaleString('fr-FR') + ' €';
+    const badge = loc ? '<span class="bien-badge location">Location</span>'
+                      : '<span class="bien-badge">Vente</span>';
+    const cardStyle = loc ? 'background:var(--white);' : '';
+    const imgContent = b.photo
+      ? '<img src="'+b.photo+'" alt="'+((b.titre||'').replace(/"/g,''))+'" style="width:100%;height:100%;object-fit:cover;">'
+      : '<div class="bien-img-placeholder">🏡</div>';
+    const imgBg = b.photo ? '' : 'background:linear-gradient(135deg,#e8e0d5,#d4c5b0);';
+    const opts  = Array.isArray(b.options) ? b.options : [];
+    const feats = [
+      '<span class="bien-feat">🛏 '+(b.pieces||'?')+' pièce'+(b.pieces>1?'s':'')+'</span>',
+      '<span class="bien-feat">🚿 '+(b.sdb||1)+' SDB</span>',
+      opts[0] ? '<span class="bien-feat">'+(ICONS[opts[0]]||'•')+' '+opts[0]+'</span>'
+              : '<span class="bien-feat">📐 '+(b.surface||'?')+' m²</span>'
+    ].join('');
+    return '<div class="bien-card" style="'+cardStyle+'">'
+      +'<div class="bien-img" style="'+imgBg+'">'+imgContent+badge+'</div>'
+      +'<div class="bien-body">'
+      +'<div class="bien-price">'+prix+'</div>'
+      +'<div class="bien-title">'+(b.titre||'')+'</div>'
+      +'<div class="bien-loc">📍 '+(b.ville||'')+' – '+(b.surface||'?')+' m²</div>'
+      +'<div class="bien-features">'+feats+'</div>'
+      +'</div></div>';
+  }
+
+  /* --- Charge un dossier et rend la grille --- */
+  async function renderGrid(folder, gridId, type) {
+    const grid = document.getElementById(gridId);
+    try {
+      const r1 = await fetch(API+'/'+folder);
+      if (!r1.ok) { grid.innerHTML = vide(); return; }
+      const files = (await r1.json()).filter(f=>f.name.endsWith('.md'));
+      if (!files.length) { grid.innerHTML = vide(); return; }
+
+      const biens = (await Promise.all(files.map(async f => {
+        const r2 = await fetch(f.url);
+        if (!r2.ok) return null;
+        const data = await r2.json();
+        const raw  = atob((data.content||'').replace(/\n/g,''));
+        return parseFM(raw);
+      }))).filter(b => b && b.statut !== 'Vendu' && b.statut !== 'Loué');
+
+      grid.innerHTML = biens.length
+        ? biens.map(b => makeCard(b, type)).join('')
+        : vide();
+    } catch(e) {
+      console.warn('Erreur chargement biens:', e);
+      grid.innerHTML = vide();
+    }
+  }
+
+  function vide() {
+    return '<p style="grid-column:1/-1;text-align:center;padding:40px;color:var(--gray);">Aucun bien disponible pour le moment. Revenez bientôt !</p>';
+  }
+
+  await Promise.all([
+    renderGrid('_biens/vente',    'vente-grid',    'vente'),
+    renderGrid('_biens/location', 'location-grid', 'location')
+  ]);
+})();
+</script>
+
+<!-- Netlify Identity : redirige vers le back-office après connexion -->
+<script src="https://identity.netlify.
