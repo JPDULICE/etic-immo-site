@@ -1,0 +1,72 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/biens"
+public_folder: "/images/biens"
+
+locale: fr
+
+collections:
+  - name: "vente"
+    label: "Biens à vendre"
+    folder: "_biens/vente"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Titre", name: "titre", widget: "string", hint: "Ex: Appartement T4 lumineux" }
+      - { label: "Prix (€)", name: "prix", widget: "number", hint: "Ex: 385000" }
+      - { label: "Surface (m²)", name: "surface", widget: "number" }
+      - { label: "Ville / Quartier", name: "ville", widget: "string", hint: "Ex: Paris 11e" }
+      - { label: "Nombre de pièces", name: "pieces", widget: "number" }
+      - { label: "Nombre de SDB", name: "sdb", widget: "number", default: 1 }
+      - label: "Options"
+        name: "options"
+        widget: "select"
+        multiple: true
+        options: ["Parking", "Garage", "Jardin", "Terrasse", "Balcon", "Cave", "Ascenseur", "Rénové", "Meublé"]
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Photo principale", name: "photo", widget: "image", required: false }
+      - label: "Statut"
+        name: "statut"
+        widget: "select"
+        options: ["Disponible", "Sous compromis", "Vendu"]
+        default: "Disponible"
+
+  - name: "location"
+    label: "Biens à louer"
+    folder: "_biens/location"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Titre", name: "titre", widget: "string", hint: "Ex: Appartement T3 calme" }
+      - { label: "Loyer mensuel (€)", name: "loyer", widget: "number", hint: "Ex: 1200" }
+      - { label: "Surface (m²)", name: "surface", widget: "number" }
+      - { label: "Ville / Quartier", name: "ville", widget: "string" }
+      - { label: "Nombre de pièces", name: "pieces", widget: "number" }
+      - { label: "Nombre de SDB", name: "sdb", widget: "number", default: 1 }
+      - label: "Options"
+        name: "options"
+        widget: "select"
+        multiple: true
+        options: ["Parking", "Garage", "Jardin", "Terrasse", "Balcon", "Cave", "Ascenseur", "Meublé", "Vue jardin", "Métro proche"]
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Photo principale", name: "photo", widget: "image", required: false }
+      - label: "Statut"
+        name: "statut"
+        widget: "select"
+        options: ["Disponible", "Réservé", "Loué"]
+        default: "Disponible"
+
+  - name: "parametres"
+    label: "Paramètres de l'agence"
+    files:
+      - label: "Informations agence"
+        name: "agence"
+        file: "_data/agence.yml"
+        fields:
+          - { label: "Nom de l'agence", name: "nom", widget: "string" }
+          - { label: "Téléphone", name: "telephone", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Adresse", name: "adresse", widget: "string" }
+          - { label: "Horaires", name: "horaires", widget: "string" }
