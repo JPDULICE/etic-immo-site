@@ -15,6 +15,6 @@ description: >-
   indépendant, une cuisine, un séjour, une terrasse, et un jardin.
 
   Au rez de chaussée un garage.
-photo: /images/biens/whatsapp-image-2026-05-05-at-21.19.23-9-.jpeg
+photo: /images/biens/whatsapp-image-2026-05-05-at-21.19.23-4-.jpeg
 statut: Disponible
 ---
